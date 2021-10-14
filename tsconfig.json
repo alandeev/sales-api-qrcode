@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "ESNext",
+    "skipLibCheck": true,
+    "strict": false,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "outDir": "build",
+    "rootDir": "src",
+    "paths": {
+      "@models/*": ["src/database/models/*"],
+      "@controllers/*": ["src/controllers/*"],
+      "@use-cases/*": ["src/use-cases/*"],
+      "@routers/*": ["src/routers/*"],
+      "@errors/*": ["src/errors/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
+}
