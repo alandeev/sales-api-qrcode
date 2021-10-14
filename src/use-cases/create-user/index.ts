@@ -13,10 +13,6 @@ const createUser = async (body: UserSchema) => {
   await validateBody(body)
 
   const usernameAlreadyUsed = await User.findByUsername(body.username)
- 
-  console.log({
-    usernameAlreadyUsed
-  })
 
   if(usernameAlreadyUsed) {
     throw new ValidationError("Username already exists")

@@ -34,9 +34,9 @@ const UserSchema = new mongoose.Schema<IUser>({
   }
 })
 
-UserSchema.statics.findByUsername = function (username: string) {
+UserSchema.statics.findByUsername = async function (username: string) {
   return this.findOne({
-    where: { username }
+    username
   })
 }
 
