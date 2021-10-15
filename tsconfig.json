@@ -15,9 +15,13 @@
       "@use-cases/*": ["src/use-cases/*"],
       "@routers/*": ["src/routers/*"],
       "@errors/*": ["src/errors/*"]
-    }
+    },
+    "typeRoots": [
+      "./src/@types",
+      "./node_modules/@types",
+    ]
   },
-  "include": ["src"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules"],
   "ts-node": {
     "require": ["tsconfig-paths/register"]

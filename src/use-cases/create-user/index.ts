@@ -1,6 +1,5 @@
 import ValidationError from '@errors/validation-error'
 import User from '../../database/models/User'
-import validateBody from './body-validation'
 import bcrypt from 'bcryptjs'
 
 interface UserSchema {
@@ -10,15 +9,13 @@ interface UserSchema {
 }
 
 const createUser = async (body: UserSchema) => {
-  await validateBody(body)
-
   const usernameAlreadyUsed = await User.findByUsername(body.username)
 
   if(usernameAlreadyUsed) {
     throw new ValidationError("Username already exists")
   }
 
-  const encryptPassword = bcrypt.hashSync(body.password, 8)
+  const encryptPassword = await bcrypt.hash(body.password, 8)
 
   const user = await User.create({
     name: body.name,

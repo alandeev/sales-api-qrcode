@@ -11,6 +11,8 @@ services:
       context: .
       dockerfile: Dockerfile
       target: base
+    env_file:
+      - .env
     volumes:
       - ./src:/home/node/app/src
       - ./nodemon.json:/home/node/app/nodemon.json
