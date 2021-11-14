@@ -1,32 +1,30 @@
-import User from '@modules/users/typeorm/entities/user';
+import Client from '@modules/clients/typeorm/entities/client';
 import { randomUUID } from 'crypto';
 import { Entity, Column, CreateDateColumn, UpdateDateColumn, PrimaryColumn, OneToOne } from 'typeorm';
 
-@Entity('clients')
-class Client {
+
+
+@Entity('restaurants')
+class Restaurant {
   @PrimaryColumn('uuid', {
     default: randomUUID()
   })
   id: string;
 
-  @Column()
-  @OneToOne(type => User)
-  created_by: string
+  @OneToOne(type => Client)
+  client_id: string;
 
   @Column()
-  name: string
-
+  name: string;
+  
   @Column()
-  email: string
-
-  @Column()
-  password: string
-
+  status: boolean;
+  
   @CreateDateColumn()
-  created_at: Date
+  created_at: Date;
 
   @UpdateDateColumn()
-  updated_at: Date
+  updated_at: Date;
 }
 
-export default Client
+export default Restaurant;

@@ -45,7 +45,7 @@ class CreateAccessUser {
 
     const accessToken = createAccessToken({
       payload: { 
-        user_id: user.id,
+        id: user.id,
         permissions: user.permissions
       },
       expires_in: '1d',

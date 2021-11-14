@@ -25,7 +25,7 @@ class CreateClientService {
     const client = await this.clientRepository.getByEmail(model.email)
     
     if(client){
-      throw new ValidationError('Client "email" already exists')
+      throw new ValidationError('"email" already exists')
     }
 
     const passwordHash = await bcrypt.hash(model.password, 8)
