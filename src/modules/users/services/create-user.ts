@@ -1,6 +1,6 @@
 import { getCustomRepository } from "typeorm"
 import bcrypt from 'bcryptjs'
-import BaseError from "@shared/errors/base-error"
+import { ValidationError } from "@shared/errors"
 import UserRepository from "../typeorm/repositories/user-repository"
 
 interface IDependencies {
@@ -28,7 +28,7 @@ class CreateUserService {
         model
       })
       
-      throw new BaseError(400, "User already exists")
+      throw new ValidationError("User already exists")
     }
 
     const passwordHash = await bcrypt.hash(model.password, 8)
