@@ -21,6 +21,16 @@ class EmployeeRepository extends Repository<Employee> {
 
     return employee;
   }
+
+  public async getByUsername(username: string): Promise<Employee | undefined> {
+    const employee = await this.findOne({
+      where: { 
+        username
+      }
+    })
+
+    return employee;
+  }
 }
 
 export default EmployeeRepository;

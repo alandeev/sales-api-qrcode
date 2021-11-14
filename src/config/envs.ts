@@ -1,6 +1,7 @@
 const ENVS = {
   USER_SECRET_KEY: process.env.USER_SECRET_KEY,
   CLIENT_SECRET_KEY: process.env.CLIENT_SECRET_KEY,
+  EMPLOYEE_SECRET_KEY: process.env.EMPLOYEE_SECRET_KEY,
   SERVER_PORT: process.env.SERVER_PORT,
 }
 

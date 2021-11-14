@@ -1,6 +1,7 @@
 import { NotFoundError } from "@shared/errors";
 import { randomUUID } from "crypto";
 import { getCustomRepository } from "typeorm";
+import bcrypt from 'bcryptjs'
 import EmployeeRepository from "../typeorm/repositories/employee-repository";
 
 interface IDependencies {
@@ -36,12 +37,14 @@ class CreateEmployeeService {
       throw new NotFoundError("employee already exist")
     }
 
+    const passwordHash = await bcrypt.hash(model.password, 8)
+
     const newEmployee = this.employeeRepository.create({
       id: randomUUID(),
       name: model.name,
       restaurant_id: model.restaurant_id,
       username: model.username,
-      password: model.password,
+      password: passwordHash,
       permissions: model.permissions
     })
 
