@@ -2,6 +2,7 @@ import { ValidationError } from "@shared/errors"
 import { getCustomRepository } from "typeorm"
 import ClientRepository from "../typeorm/repositories/client-repository"
 import bcrypt from 'bcryptjs'
+import { randomUUID } from 'crypto';
 
 interface IDependencies {
   clientRepository?: ClientRepository
@@ -31,6 +32,7 @@ class CreateClientService {
     const passwordHash = await bcrypt.hash(model.password, 8)
 
     const newClient = this.clientRepository.create({
+      id: randomUUID(),
       created_by: model.created_by,
       name: model.name,
       email: model.email,

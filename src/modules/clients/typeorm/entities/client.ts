@@ -1,12 +1,9 @@
 import User from '@modules/users/typeorm/entities/user';
-import { randomUUID } from 'crypto';
 import { Entity, Column, CreateDateColumn, UpdateDateColumn, PrimaryColumn, OneToOne } from 'typeorm';
 
 @Entity('clients')
 class Client {
-  @PrimaryColumn('uuid', {
-    default: randomUUID()
-  })
+  @PrimaryColumn('uuid')
   id: string;
 
   @Column()

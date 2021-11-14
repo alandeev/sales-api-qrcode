@@ -1,4 +1,5 @@
 import { ValidationError } from "@shared/errors";
+import { randomUUID } from "crypto";
 import { getCustomRepository } from "typeorm";
 import RestaurantRepository from "../typeorm/repositories/restaurant-repository";
 
@@ -25,6 +26,7 @@ class CreateRestaurantService {
     }
 
     const restaurant = this.restaurantRepository.create({
+      id: randomUUID(),
       client_id: model.client_id,
       name: model.name,
       status: true, // modify after

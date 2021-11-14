@@ -3,10 +3,9 @@ import { Request, Response } from "express";
 import CreateEmployeeService from "@modules/restaurants/services/create-employee";
 import GetRestaurantByClient from "@modules/restaurants/services/get-restaurant-by-client";
 
-class CreateRestaurantController {
+class CreateEmployeeController {
   public async execute(req: Request, res: Response) {
     const model = bodyValidator(req.body)
-
 
     const getRestaurantByClient = new GetRestaurantByClient()
     const restaurant = await getRestaurantByClient.execute({
@@ -26,4 +25,4 @@ class CreateRestaurantController {
   }
 }
 
-export default CreateRestaurantController;
+export default CreateEmployeeController;

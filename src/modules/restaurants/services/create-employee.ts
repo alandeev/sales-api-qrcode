@@ -1,4 +1,5 @@
 import { NotFoundError } from "@shared/errors";
+import { randomUUID } from "crypto";
 import { getCustomRepository } from "typeorm";
 import EmployeeRepository from "../typeorm/repositories/employee-repository";
 
@@ -36,6 +37,7 @@ class CreateEmployeeService {
     }
 
     const newEmployee = this.employeeRepository.create({
+      id: randomUUID(),
       name: model.name,
       restaurant_id: model.restaurant_id,
       username: model.username,

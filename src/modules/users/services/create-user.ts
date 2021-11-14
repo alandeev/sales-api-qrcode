@@ -2,6 +2,7 @@ import { getCustomRepository } from "typeorm"
 import bcrypt from 'bcryptjs'
 import { ValidationError } from "@shared/errors"
 import UserRepository from "../typeorm/repositories/user-repository"
+import { randomUUID } from "crypto"
 
 interface IDependencies {
   userRepository?: UserRepository
@@ -34,6 +35,7 @@ class CreateUserService {
     const passwordHash = await bcrypt.hash(model.password, 8)
 
     const newUser = this.userRepository.create({
+      id: randomUUID(),
       name: model.name,
       username: model.username,
       password: passwordHash,
