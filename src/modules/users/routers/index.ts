@@ -7,7 +7,7 @@ const authUserController = new AuthUserControler()
 
 const UserRoutes = Router()
 
-UserRoutes.post('/', createUserControler.execute)
+UserRoutes.post('/create', createUserControler.execute)
 UserRoutes.post('/auth', authUserController.execute)
 
 export default UserRoutes;
