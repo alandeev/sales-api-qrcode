@@ -14,7 +14,7 @@ class User {
   @Column()
   password: string;
 
-  @Column('simple-array')
+  @Column("json")
   permissions: string[]
 
   @CreateDateColumn()

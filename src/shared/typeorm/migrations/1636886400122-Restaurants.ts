@@ -11,7 +11,7 @@ export class Restaurants1636886400122 implements MigrationInterface {
         generationStrategy: "uuid"
       },
       {
-        name: "client_id", // owner_id
+        name: "client_id",
         type: "uuid",
         isNullable: false
       },

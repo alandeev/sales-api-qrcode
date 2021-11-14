@@ -6,6 +6,7 @@ class Restaurant {
   @PrimaryColumn('uuid')
   id: string;
 
+  @Column('uuid')
   @OneToOne(type => Client)
   client_id: string;
 

@@ -32,8 +32,7 @@ export class Employees1636894498365 implements MigrationInterface {
       },
       {
         name: "permissions",
-        type: "jsonb",
-        isArray: true,
+        type: "json",
         isNullable: false
       },
       {

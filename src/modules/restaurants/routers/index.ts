@@ -9,11 +9,8 @@ const RestaurantRoutes = Router()
 const createRestaurantController = new CreateRestaurantController()
 const createEmployeeController = new CreateEmployeeController()
 
-// Authenticated
 const isClientAuthenticated = isAuthenticated(ENVS.CLIENT_SECRET_KEY);
-// RestaurantRoutes.use()
 
-// Routers
 RestaurantRoutes.post('/', isClientAuthenticated, createRestaurantController.execute)
 RestaurantRoutes.post('/employee', isClientAuthenticated, createEmployeeController.execute)
 

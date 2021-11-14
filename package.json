@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsnd -r tsconfig-paths/register --exit-child --transpile-only --respawn --ignore-watch node_modules src/shared/http/index",
+    "debug": "tsnd -r tsconfig-paths/register --exit-child --transpile-only --respawn --ignore-watch node_modules src/shared/http/index",
     "typeorm": "tsnd -r tsconfig-paths/register --transpile-only ./node_modules/typeorm/cli.js -- "
   },
   "keywords": [],

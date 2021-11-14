@@ -6,6 +6,7 @@ class Employee {
   @PrimaryColumn('uuid')
   id: string
 
+  @Column()
   @OneToOne(type => Restaurant)
   restaurant_id: string
 
@@ -18,7 +19,7 @@ class Employee {
   @Column()
   password: string
 
-  @Column('simple-array')
+  @Column("json")
   permissions: string[]
 
   @CreateDateColumn()

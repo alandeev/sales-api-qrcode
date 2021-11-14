@@ -28,8 +28,7 @@ export class User1636868139913 implements MigrationInterface {
       },
       {
         name: "permissions",
-        type: "jsonb",
-        isArray: true,
+        type: "json",
         isNullable: false
       },
       {

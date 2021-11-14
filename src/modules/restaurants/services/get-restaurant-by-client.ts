@@ -20,7 +20,12 @@ class GetRestaurantByClient {
     const restaurant = await this.restaurantRepository.getByClientId(model.client_id)
 
     if(!restaurant) {
-      throw new NotFoundError("Client does not have restaurant")
+      console.warn({
+        message: "client does not have restaurant",
+        model
+      })
+
+      throw new NotFoundError("client does not have restaurant")
     }
 
     return restaurant;

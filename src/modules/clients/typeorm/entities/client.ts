@@ -6,7 +6,7 @@ class Client {
   @PrimaryColumn('uuid')
   id: string;
 
-  @Column()
+  @Column('uuid')
   @OneToOne(type => User)
   created_by: string
 
