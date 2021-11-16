@@ -6,26 +6,28 @@ import CreateEmployeeController from "../controllers/create-employee";
 import AuthEmployeeController from "../controllers/auth-employee";
 import CreateProductController from "../controllers/create-product";
 import ListProductsController from "../controllers/list-products";
+import CreateComandaController from "../controllers/create-comanda";
  
 const RestaurantRoutes = Router()
 
 const createRestaurantController = new CreateRestaurantController()
 const createEmployeeController = new CreateEmployeeController()
-const authEmployeeController = new AuthEmployeeController() 
+const authEmployeeController = new AuthEmployeeController()
 const createProductController = new CreateProductController()
 const listProductsController = new ListProductsController()
+const createComandaController = new CreateComandaController()
 
+// Clients
 const isClientAuthenticated = isAuthenticated(ENVS.CLIENT_SECRET_KEY);
-
-// auth routers
 RestaurantRoutes.post('/', isClientAuthenticated, createRestaurantController.execute)
-
 RestaurantRoutes.post('/employee', isClientAuthenticated, createEmployeeController.execute)
-
 RestaurantRoutes.post('/products', isClientAuthenticated, createProductController.execute)
 RestaurantRoutes.get('/products', isClientAuthenticated, listProductsController.execute)
 
-// no auth routers
+// Employees
+const isEmployeeAuthenticated = isAuthenticated(ENVS.EMPLOYEE_SECRET_KEY);
+
+RestaurantRoutes.post('/comandas', isEmployeeAuthenticated, createComandaController.execute)
 RestaurantRoutes.post('/employee/auth', authEmployeeController.execute)
 
 export default RestaurantRoutes

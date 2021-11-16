@@ -3,11 +3,9 @@ type Permission = {
   description: string;
 }
 
-const permissions: Permission[] = [
+export const permissions: Permission[] = [
  {
    key: "create-restaurant",
    description: "Criar restaurantes"
  } 
 ]
-
-export default permissions;

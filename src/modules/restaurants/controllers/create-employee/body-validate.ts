@@ -1,4 +1,4 @@
-import permissions from '@modules/restaurants/contants/permissions';
+import { permissions } from '@modules/restaurants/contants/restaurant';
 import SchemaValidator from '@shared/utils/schema-validator';
 import Joi from 'joi'
 

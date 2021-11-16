@@ -1,8 +1,5 @@
-import permissions from '@modules/restaurants/contants/permissions';
 import SchemaValidator from '@shared/utils/schema-validator';
 import Joi from 'joi'
-
-const keysPermission = permissions.map(p => p.key)
 
 const CraeteEmployeeSchema = Joi.object({
   name: Joi.string().min(4).max(40).required(),
