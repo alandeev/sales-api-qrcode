@@ -21,7 +21,7 @@ class CreateEmployeeController {
       permissions: model.permissions,
     })
 
-    return res.status(200).json(employee)
+    return res.status(201).json(employee)
   }
 }
 

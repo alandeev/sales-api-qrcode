@@ -1,6 +1,5 @@
 import { getCustomRepository } from "typeorm"
 import ProductRepository from "@modules/restaurants/typeorm/repositories/product-repository"
-import { randomUUID } from "crypto"
 
 interface IDependencies {
   productRepository?: ProductRepository
@@ -8,12 +7,9 @@ interface IDependencies {
 
 interface ICreateProduct {
   restaurant_id: string
-  name: string
-  description: string
-  price: number
 }
 
-class CreateProductService {
+class ListProductsByRestaurant {
   private productRepository: ProductRepository
 
   constructor(deps?: IDependencies) { 
@@ -21,18 +17,10 @@ class CreateProductService {
   }
 
   public async execute(model: ICreateProduct) {
-    const product = this.productRepository.create({
-      id: randomUUID(),
-      restaurant_id: model.restaurant_id,
-      name: model.name,
-      description: model.description,
-      price: model.price
-    })
+    const products = await this.productRepository.listProductsByRestaurant(model.restaurant_id)
 
-    await this.productRepository.save(product)
-
-    return product;
+    return products
   }
 }
 
-export default CreateProductService;
+export default ListProductsByRestaurant;

@@ -14,7 +14,9 @@ class CreateRestaurantController {
       status: false
     })
 
-    return res.status(200).json(restaurant)
+    return res
+      .status(201)
+      .json(restaurant)
   }
 }
 

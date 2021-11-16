@@ -23,12 +23,12 @@ export class Product1636933825839 implements MigrationInterface {
         {
           name: "description",
           type: "varchar",
-          default: false
+          isNullable: false
         }, 
         {
           name: "price",
           type: "bigint",
-          default: false
+          isNullable: false
         },
         {
           name: 'created_at',

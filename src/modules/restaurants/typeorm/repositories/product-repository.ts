@@ -3,12 +3,12 @@ import Product from "../entities/product";
 
 @EntityRepository(Product)
 class ProductRepository extends Repository<Product> {
-  public async listProductsByRestaurant(restaurant_id: string): Promise<Product[]> {
-    const product = await this.find({
-      where: {  restaurant_id }
+  public async listProductsByRestaurant(restaurant_id: string, ): Promise<Product[]> {
+    const products = await this.find({
+      where: { restaurant_id }
     })
 
-    return product;
+    return products
   }
 }
 

@@ -1,5 +1,4 @@
-import { Entity, Column, CreateDateColumn, UpdateDateColumn, PrimaryColumn, ManyToOne } from 'typeorm';
-import Restaurant from './restaurant';
+import { Entity, Column, CreateDateColumn, UpdateDateColumn, PrimaryColumn } from 'typeorm';
 
 @Entity('products')
 class Product {
@@ -7,7 +6,6 @@ class Product {
   id: string;
 
   @Column()
-  @ManyToOne(type => Restaurant)
   restaurant_id: string
 
   @Column()
