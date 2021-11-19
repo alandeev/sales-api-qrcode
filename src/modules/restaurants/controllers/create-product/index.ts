@@ -18,7 +18,8 @@ class CreateProductController {
       restaurant_id: restaurant.id,
       name: model.name,
       description: model.description,
-      price: model.price
+      price: model.price,
+      category_id: model.category_id
     })
 
     return res.status(201).json(product)

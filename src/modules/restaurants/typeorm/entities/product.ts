@@ -9,6 +9,9 @@ class Product {
   restaurant_id: string
 
   @Column()
+  category_id?: string
+
+  @Column()
   name: string;
 
   @Column()

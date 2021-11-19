@@ -4,13 +4,15 @@ import Joi from 'joi'
 const CraeteEmployeeSchema = Joi.object({
   name: Joi.string().min(4).max(40).required(),
   description: Joi.string().max(255).optional(),
-  price: Joi.number().min(100).max(1000000).required()
+  price: Joi.number().min(100).max(1000000).required(),
+  category_id: Joi.string().uuid().optional()
 })
 
 interface IRequest {
   name: string
   description: string
   price: number
+  category_id?: string
 }
 
 const bodyValidator = (data: Partial<IRequest>) => {
